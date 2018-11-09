@@ -1,0 +1,32 @@
+body{
+  max-width: auto;
+}
+.stopAlert{
+  display: none;
+}
+.showAlert{display: block;}
+.loginbox{
+  border-style: solid;
+    border-width: 1px;
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin-top: 2em;
+}
+ form{
+   padding: 1em;
+ }
+ #exampleInputfName,#exampleInputPassword2,#emailHelp,#emailLabel,#passLabel,.form-check,button{
+   float: left;
+ }
+ button.btn.btn-primary.loginbtn{
+   margin: 1% auto;
+ }
+ button.btn.btn.regbtn{
+   margin: 5% auto 2% -15.3em;
+ }
+
+@media screen and (min-width: 480px) {
+    .loginbox {
+        width: 675px;
+    }
+}
