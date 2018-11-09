@@ -1,2 +1,2 @@
 # simpleApp
-This is a simple MERN APP
+This is a simple MERN App with login and register feature
