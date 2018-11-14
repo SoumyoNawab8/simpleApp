@@ -3,6 +3,11 @@ import Header from './header'
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import Login from './auth/login';
 import Register from './auth/register';
+import { Provider } from 'react-redux'
+import {createStore,applyMiddleware} from 'redux'
+
+
+const store=createStore(()=>[],{},applyMiddleware());
 
 class Home extends Component {
   render(){
@@ -23,6 +28,7 @@ class Home extends Component {
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <Router>
       <div className="App">
        <Header />
@@ -32,6 +38,7 @@ class App extends Component {
 
       </div>
       </Router>
+      </Provider>
     );
   }
 }

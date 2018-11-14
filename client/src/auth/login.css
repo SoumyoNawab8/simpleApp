@@ -4,6 +4,7 @@ body{
 .stopAlert{
   display: none;
 }
+.errAlert{display: none;}
 .showAlert{display: block;}
 .loginbox{
   border-style: solid;
