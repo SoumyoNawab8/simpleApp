@@ -49,7 +49,14 @@ export default class Register extends Component{
         window.location.href="/login"
       },3000)
     })
-    .catch(err=>console.log(err))
+    .catch(function(err){
+      console.log(err.response.data)
+      var element = document.getElementById("errAlert");
+      const getErrs=Object.keys(err.response.data).map(i=>err.response.data[i]);
+      element.innerHTML += getErrs;
+      element.classList.remove("errAlert");
+      element.classList.add("showAlert");
+    })
   }
   handleChange(event){
     if(event.target.id==='exampleInputfName'){
@@ -72,7 +79,8 @@ export default class Register extends Component{
   render(){
     return(
       <div className=" container text-center">
-      <div class="alert alert-success stopAlert" id="succAlert">You have been successfully registered with us.</div>
+      <div className="alert alert-danger errAlert" id="errAlert"></div>
+      <div className="alert alert-success stopAlert" id="succAlert">You have been successfully registered with us.</div>
       <div className="loginbox text-center">
       <form onSubmit={this.registerUser}>
         <div className="form-group">

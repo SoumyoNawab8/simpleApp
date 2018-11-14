@@ -33,8 +33,11 @@ export default class Login extends Component{
       self.setState({authen:tok})
     })
     .catch(function(err){
-      alert("username or password is incorrect")
-      console.log("err>>>"+err)
+      var element = document.getElementById("errAlert");
+      const getErrs=Object.keys(err.response.data).map(i=>err.response.data[i]);
+      element.innerHTML += getErrs;
+      element.classList.remove("errAlert");
+      element.classList.add("showAlert");
       return true
     })
   }
@@ -63,6 +66,7 @@ export default class Login extends Component{
           </div>
         </div>
         : <div className="loginbox text-center">
+        <div className="alert alert-danger errAlert" id="errAlert"></div>
       <form onSubmit={this.userLogin}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1" id="emailLabel">Email address</label>
